@@ -31,6 +31,7 @@ public class JwtAuthenticationFilter implements GatewayFilter {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        String path = exchange.getRequest().getPath().toString(); // Revisar
         String token = exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
         logger.info("Token with Bearer: " + token);
         if(!exchange.getRequest().getPath().toString().startsWith("/api/auth")){
@@ -39,7 +40,6 @@ public class JwtAuthenticationFilter implements GatewayFilter {
                 logger.info("Token: " + token);
                 try {
                     if (jwtUtil.validateToken(token)) {
-                        //Pasamos los claims por headers envitando tener que usar un JwtUtils en cada microservicio
                         String username = jwtUtil.getUsernameFromToken(token);
                         logger.info("Username: " + username);
                         List<String> roles = jwtUtil.getAuthoritiesFromToken(token);
