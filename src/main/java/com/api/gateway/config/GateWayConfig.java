@@ -16,20 +16,29 @@ public class GateWayConfig {
     @Bean
     public RouteLocator customRouter(RouteLocatorBuilder routeLocatorBuilder) {
         return routeLocatorBuilder.routes()
-                .route("user-service", r -> r.path("/api/auth/**")
+                .route("user-auth", r -> r.path("/api/auth/**")
                         .uri("lb://user"))
-                .route("user-service", r -> r.path("/api/user/**")
+                .route("user", r -> r.path("/api/user/**")
                         .filters(f -> f.filter(jwtAuthenticationFilter))
                         .uri("lb://user"))
-                .route("pointOfSale-service", r -> r.path("/api/pointOfSale/**")
+                .route("user-docs", r -> r.path("/user/v3/api-docs")
+                        .uri("lb://user"))
+
+                .route("point-of-sale", r -> r.path("/api/pointOfSale/**")
                         .filters(f -> f.filter(jwtAuthenticationFilter))
                         .uri("lb://pointsalecost"))
-                .route("pointOfSale-service", r -> r.path("/api/cost/**")
+                .route("cost", r -> r.path("/api/cost/**")
                         .filters(f -> f.filter(jwtAuthenticationFilter))
                         .uri("lb://pointsalecost"))
-                .route("accreditations-service", r -> r.path("/api/accreditations/**")
+                .route("point-of-sale-docs", r -> r.path("/pointsalecost/v3/api-docs")
+                        .uri("lb://pointsalecost"))
+
+                .route("accreditations", r -> r.path("/api/accreditations/**")
                         .filters(f -> f.filter(jwtAuthenticationFilter))
                         .uri("lb://accreditations"))
+                .route("accreditations-docs", r -> r.path("/accreditations/v3/api-docs")
+                        .uri("lb://accreditations"))
+
                 .build();
     }
 }

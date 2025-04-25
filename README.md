@@ -21,7 +21,10 @@ Este proyecto es una implementación de una arquitectura de microservicios basad
 - Mailtrap
 - Docker / Podman
 - Postman / DBBeaver
+- Open Api (Swagger)
 - Junit / Mockito
+- Jacoco + informe en HTML
+- SonarQube (Revisión de cobertura)
 
 ## 📌 Spring Cloud Gateway
 
