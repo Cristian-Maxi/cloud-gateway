@@ -29,7 +29,7 @@ Este proyecto es una implementación de una arquitectura de microservicios basad
 
 ## 📌 Spring Cloud Gateway
 
-Utilizaremos Spring Cloud Gateway para que nos permite tener un punto de acceso centralizado a nuestros Microservicios y podemos agregar filtros y predicados.
+Utilizaremos Spring Cloud Gateway para que nos permita tener un punto de acceso centralizado a nuestros Microservicios y podemos agregar filtros y predicados. En esté crearemos un filtro que se encargará de la de la desearilización de los tokens que recibamos del microservicio de User, una vez que el usuario se haya autenticado. Dicho filtro se encargará de verificar si el token está bien es válido, y si es así entonces extraerá las autoridades del usuario y su nombre, con la finalidad de enviar ésta informacion a traves del haader a los demás microservicios y estos puedan decidir si el usuario tiene el rol necesario para usar ciertos endpoint. 
 
 ---
 
