@@ -180,3 +180,8 @@ networks:
 ## ✅ Estructura de la Carpeta
 
 ![Estructuras de carpetas](https://github.com/user-attachments/assets/e8942621-e96b-4a62-9620-0cfd5df9197e)
+
+
+## 💻​ Diagrama del Flujo General de la Aplicación
+
+![Diagrama del Flujo General](https://github.com/user-attachments/assets/2d034514-c1a8-4201-88cf-3f7eaa2979ff)
